@@ -3,7 +3,7 @@ import Icon from "@mdi/react";
 import { mdiHome, mdiCalendarToday, mdiFolder } from "@mdi/js";
 import "../styles/todoSelect.css";
 
-function TodoSelect() {
+function TodoSelect({ clickBtn, show }) {
   return (
     <div className="select-todo">
       <h3 className="selection">
@@ -25,7 +25,7 @@ function TodoSelect() {
         PROJECTS
       </h3>
       <div className="position-button">
-        <button className="add">ADD TODO/PROJECT</button>
+        <button className="add" onClick={clickBtn} disabled={show}>ADD TODO/PROJECT</button>
       </div>
     </div>
   );

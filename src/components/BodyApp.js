@@ -3,10 +3,10 @@ import TodoSelect from "./TodoSelect";
 import TodoDisplay from "./TodoDisplay";
 import "../styles/bodyApp.css";
 
-function BodyApp(){
+function BodyApp({clickBtn, style, show}){
     return (
-        <div className="app-body">
-            <TodoSelect />
+        <div className="app-body" style ={style}>
+            <TodoSelect clickBtn = {clickBtn} show = {show} />
             <TodoDisplay />
         </div>
     )

@@ -1,14 +1,27 @@
+import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import BodyApp from './components/BodyApp';
 import FooterApp from './components/FooterApp';
+import InputTodo from './components/InputTodo';
 
 function App() {
+  const [showInput, setShowInput] = useState(false);
+  
+  function clickButton(){
+    setShowInput(prevState => !prevState);
+  }
+
+  const styleOpacity = {
+    opacity: showInput ? "0.5": "1"
+  }
+
   return (
-    <div className="App">
+    <div className="App" >
       <Header />
-      <BodyApp />
+      <BodyApp clickBtn = {clickButton} style={styleOpacity} show = {showInput} />
       <FooterApp />
+      {showInput && <InputTodo show = {showInput} setShow = {setShowInput} />}
     </div>
   );
 }
