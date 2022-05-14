@@ -1,0 +1,7 @@
+.header-title{
+    border-bottom: 1px solid black;
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    padding-left: 6rem;
+}
