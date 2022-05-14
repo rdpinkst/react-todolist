@@ -1,7 +1,8 @@
 .footer-app{
-    background-color: orange;
+    background-color: #ef9273;
     height: 2rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+

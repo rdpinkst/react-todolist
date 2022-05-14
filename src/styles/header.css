@@ -1,7 +1,8 @@
 .header-title{
-    border-bottom: 1px solid black;
+    border: 0.5rem solid #ef9273;
     height: 5rem;
     display: flex;
     align-items: center;
     padding-left: 6rem;
+    font-size: 2rem;
 }

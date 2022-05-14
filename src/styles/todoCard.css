@@ -1,0 +1,18 @@
+.card{
+    display: flex;
+    justify-content: space-around;
+    padding: 0.5rem 0;
+}
+.edit{
+    display: flex;
+}
+.edit-icon{
+    margin-left: 1rem;
+    cursor: pointer;
+}
+.card:nth-child(odd){
+    background-color: #F8FDFE;
+}
+.urgency{
+    background-color: red;
+}

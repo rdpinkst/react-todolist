@@ -1,4 +1,29 @@
-.select-todo{
-    background-color: blue;
-    border-right: 2px solid black;
+.select-todo{ 
+    display: flex; 
+    flex-direction: column;
+    border-right: 0.5rem solid #ef9273;
+    border-left: 0.5rem solid #ef9273;
+}
+.selection{
+    margin: 1rem 2rem 0 2rem;
+    cursor: pointer;
+    font-size: 2rem;
+}
+.selection:hover{
+    color: grey;
+    /* font-size: 2.2rem; */
+}
+.add{
+    background-color: #ef9273;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 3px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+}
+.position-button{
+    display: flex;
+    justify-content: center;
+    margin: auto 0 2rem 0;
 }
