@@ -1,10 +1,10 @@
 .input-card{
     position: absolute;
-    width: 40vw;
-    height: 50vh;
+    width: 25vw;
+    height: 52vh;
     background-color: #fef9f8;
     border: 0.5rem solid #ef9273;
-    left: 25%;
+    left: 40%;
     top: 15%;
 }
 .close{
@@ -14,4 +14,31 @@
     color: red;
     cursor: pointer;
     font-size: 1.5rem;
+}
+.input{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin: 2rem 2rem 1rem 2rem;
+}
+.input:first-child{
+    margin-top: 2.5rem;
+}
+label{
+    margin-bottom: 0.5rem;
+}
+textarea{
+    height: 70px;
+}
+.input-selection{
+    position: absolute;
+    display: flex;
+    margin: 0.25rem 2rem 0 2rem;
+}
+.selection-input{
+    margin-right: 0.75rem;
+    cursor: pointer;
+}
+.selection-input:hover{
+    font-weight: 700;
 }
