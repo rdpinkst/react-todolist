@@ -1,9 +1,15 @@
 import React, { useState, useEffect } from "react";
+import { doc, collection, addDoc, updateDoc } from "firebase/firestore"
 import "../styles/inputTodo.css";
+
 
 function InputTodo({ show, setShow }) {
   const [todo, setTodo] = useState(true);
   const [project, setProject] = useState(false);
+  const [todoName, setTodoName] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
+  const [projName, setProjName] = useState("");
 
   const styleTodo = {
     textDecoration: todo ? "underline" : "",
@@ -30,17 +36,13 @@ function InputTodo({ show, setShow }) {
     }
   }
 
-  useEffect(() => {
-    function clickClose(e) {
-      if (e.target.className === "close") {
-        setShow((prevState) => !prevState);
-      }
-    }
+  function clickClose() {
+    setShow((prevState) => !prevState);
+  }
 
-    document.addEventListener("click", clickClose);
-
-    return () => document.removeEventListener("click", clickClose);
-  });
+  async function addFirestoreData(e){
+    e.preventDefault();
+  }
 
   return (
     <form className="input-card">
@@ -56,7 +58,7 @@ function InputTodo({ show, setShow }) {
           New Project
         </p>
       </div>
-      <p className="close">x</p>
+      <p className="close" onClick={clickClose}>x</p>
       {todo && <div>
        <div className="input">
         <label htmlFor="todo-name">Task to Complete:</label>
