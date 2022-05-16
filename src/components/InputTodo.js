@@ -87,7 +87,7 @@ function InputTodo({ show, setShow }) {
       </div></div>}
       {project && <div>
         <div className="input">
-          <label htmlFor="project-input">Project Name</label>
+          <label htmlFor="project-input">Project Name:</label>
           <input type="text" id="project-input" name="project" />
         </div>
         <div className="input">
