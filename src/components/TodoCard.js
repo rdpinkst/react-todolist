@@ -3,14 +3,19 @@ import Icon from "@mdi/react";
 import { mdiPencil, mdiDelete } from "@mdi/js";
 import "../styles/todoCard.css";
 
-function TodoCard() {
+function TodoCard({ todo, date, urgency }) {
+
+  function deleteDoc(e){
+
+  }
+
   return (
     <div className="card">
-      <p className="title">Title of TODO</p>
+      <p className="title">{todo}</p>
       <div className="urgency">
-        <p>IMPORTANCE</p>
+        <p>{urgency}</p>
       </div>
-      <p>DATE TODO</p>
+      <p>{date}</p>
       <div className="edit">
         <p className="edit-icon">
           <Icon path={mdiPencil} size={1} />
