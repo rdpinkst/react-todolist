@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { doc, collection, addDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase";
 import "../styles/inputTodo.css";
 
 function InputTodo({ show, setShow }) {
@@ -26,6 +27,7 @@ function InputTodo({ show, setShow }) {
     if (todo) {
       setTodo((prevState) => !prevState);
       setProject((prevState) => !prevState);
+      clearForm();
     }
   }
 
@@ -33,6 +35,7 @@ function InputTodo({ show, setShow }) {
     if (project) {
       setProject((prevState) => !prevState);
       setTodo((prevState) => !prevState);
+      clearForm()
     }
   }
 
@@ -42,6 +45,45 @@ function InputTodo({ show, setShow }) {
 
   async function addFirestoreData(e) {
     e.preventDefault();
+    
+    if(todo){
+    const docRef = await addDoc(collection(db, "tasks"), {
+      todo: todoName,
+      description: description,
+      date: date,
+      urgency: urgency,
+      project: projName,
+    })
+
+    const fileId = docRef.id;
+    const updateId = doc(db, "tasks", fileId);
+    await updateDoc(updateId, {
+      id: fileId,
+    })
+  } else if (project){
+    const docRef = await addDoc(collection(db, "projects"), {
+      project: projName,
+    })
+
+    const fileId = docRef.id;
+    const updateId = doc(db, "projects", fileId);
+    await updateDoc(updateId, {
+      id: fileId,
+    })
+  }
+  //unsure if should do it this way
+  setShow(prevState => !prevState)
+  }
+
+  function clearForm(){
+    if(project){
+    setTodoName("")
+    setDescription("");
+    setDate("");
+    setUrgency("");
+    } else if(todo){
+    setProjName("");
+    }
   }
 
   return (
@@ -106,7 +148,7 @@ function InputTodo({ show, setShow }) {
             </select>
           </div>
           <div className="input">
-            <button>Submit Todo</button>
+            <button type="button" onClick={addFirestoreData}>Submit Todo</button>
           </div>
         </div>
       )}
@@ -123,7 +165,7 @@ function InputTodo({ show, setShow }) {
             />
           </div>
           <div className="input">
-            <button>Submit Project</button>
+            <button type="button" onClick={addFirestoreData}>Submit Project</button>
           </div>
         </div>
       )}
