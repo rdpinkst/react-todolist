@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { doc, collection, onSnapshot, QuerySnapshot } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase";
 import TodoCard from "./TodoCard";
 import "../styles/todoDisplay.css"
@@ -20,7 +20,7 @@ function TodoDisplay(){
     },[])
 
     const todos = todoList.map(task => {
-        return <TodoCard key={task.id} todo = {task.todo} date = {task.date} urgency = {task.urgency} />
+        return <TodoCard key={task.id} id= {task.id} todo = {task.todo} date = {task.date} urgency = {task.urgency} />
     })
 
     return (
