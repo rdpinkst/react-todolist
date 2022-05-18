@@ -4,7 +4,7 @@
     border-right: 0.5rem solid #ef9273;
     border-left: 0.5rem solid #ef9273;
 }
-.selection{
+.selection, .name-proj{
     margin: 1rem 2rem 0 2rem;
     cursor: pointer;
     font-size: 2rem;
@@ -27,3 +27,4 @@ button{
     justify-content: center;
     margin: auto 0 2rem 0;
 }
+

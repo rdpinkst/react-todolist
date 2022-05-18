@@ -11,6 +11,7 @@ function InputTodo({ show, setShow }) {
   const [date, setDate] = useState("");
   const [urgency, setUrgency] = useState("");
   const [projName, setProjName] = useState("");
+  const [subForm, setSubForm] = useState(false);
 
   const styleTodo = {
     textDecoration: todo ? "underline" : "",
@@ -43,8 +44,7 @@ function InputTodo({ show, setShow }) {
     setShow((prevState) => !prevState);
   }
 
-  async function addFirestoreData(e) {
-    e.preventDefault();
+  async function addFirestoreData() {
     
     if(todo){
     const docRef = await addDoc(collection(db, "tasks"), {
@@ -72,8 +72,21 @@ function InputTodo({ show, setShow }) {
     })
   }
   //unsure if should do it this way
-  setShow(prevState => !prevState)
+  // setShow(prevState => !prevState)
   }
+
+  function submitForm(e){
+    e.preventDefault();
+    setSubForm(prevState => !prevState);
+  }
+
+  useEffect(() => {
+    if(subForm){
+      addFirestoreData();
+      setShow(prevState => !prevState);
+      setSubForm(prevState => !prevState);
+    }
+  }, [subForm])
 
   function clearForm(){
     if(project){
@@ -148,7 +161,7 @@ function InputTodo({ show, setShow }) {
             </select>
           </div>
           <div className="input">
-            <button type="button" onClick={addFirestoreData}>Submit Todo</button>
+            <button type="button" onClick={submitForm}>Submit Todo</button>
           </div>
         </div>
       )}
@@ -165,7 +178,7 @@ function InputTodo({ show, setShow }) {
             />
           </div>
           <div className="input">
-            <button type="button" onClick={addFirestoreData}>Submit Project</button>
+            <button type="button" onClick={submitForm}>Submit Project</button>
           </div>
         </div>
       )}
