@@ -5,7 +5,7 @@ import Icon from "@mdi/react";
 import { mdiHome, mdiCalendarToday, mdiFolder, mdiCloseThick } from "@mdi/js";
 import "../styles/todoSelect.css";
 
-function TodoSelect({ clickBtn, show }) {
+function TodoSelect({ clickBtn, show, clickProj }) {
   const [proj, setProj] = useState([]);
   const [projId, setProjId] = useState("");
 
@@ -39,7 +39,7 @@ function TodoSelect({ clickBtn, show }) {
 
   const projDisplay = proj.map((data) => {
     return (
-      <div className="name-proj" key={data.id}>
+      <div id={data.project} className="name-proj" key={data.id} onClick={clickProj}>
         <p>
           ---{data.project}{" "}
           <span className="delete-proj" id={data.id}>
@@ -57,7 +57,7 @@ function TodoSelect({ clickBtn, show }) {
 
   return (
     <div className="select-todo">
-      <h3 className="selection">
+      <h3 className="selection" onClick={clickProj}>
         <span>
           <Icon path={mdiHome} size={1} />
         </span>{" "}

@@ -3,7 +3,7 @@ import { doc, collection, addDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import "../styles/inputTodo.css";
 
-function InputTodo({ show, setShow }) {
+function InputTodo({ show, setShow, projectOn }) {
   const [todo, setTodo] = useState(true);
   const [project, setProject] = useState(false);
   const [todoName, setTodoName] = useState("");
@@ -52,7 +52,7 @@ function InputTodo({ show, setShow }) {
       description: description,
       date: date,
       urgency: urgency,
-      project: projName,
+      project: projectOn,
     })
 
     const fileId = docRef.id;
@@ -71,8 +71,6 @@ function InputTodo({ show, setShow }) {
       id: fileId,
     })
   }
-  //unsure if should do it this way
-  // setShow(prevState => !prevState)
   }
 
   function submitForm(e){
@@ -100,7 +98,7 @@ function InputTodo({ show, setShow }) {
   }
 
   return (
-    <form className="input-card">
+    <form className="input-card" onSubmit={submitForm}>
       <div className="input-selection">
         <p className="selection-input" style={styleTodo} onClick={clickTodo}>
           New Todo
@@ -161,7 +159,7 @@ function InputTodo({ show, setShow }) {
             </select>
           </div>
           <div className="input">
-            <button type="button" onClick={submitForm}>Submit Todo</button>
+            <button type="submit">Submit Todo</button>
           </div>
         </div>
       )}
@@ -178,7 +176,7 @@ function InputTodo({ show, setShow }) {
             />
           </div>
           <div className="input">
-            <button type="button" onClick={submitForm}>Submit Project</button>
+            <button type="submit">Submit Project</button>
           </div>
         </div>
       )}
