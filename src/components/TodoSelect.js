@@ -39,7 +39,7 @@ function TodoSelect({ clickBtn, show }) {
 
   const projDisplay = proj.map((data) => {
     return (
-      <div key={data.id} className="name-proj">
+      <div className="name-proj" key={data.id}>
         <p>
           ---{data.project}{" "}
           <span className="delete-proj" id={data.id}>
