@@ -17,7 +17,6 @@ function TodoDisplay({ projectOn }) {
         arrayData.push(doc.data());
       });
       setTodoList(arrayData);
-      setProjList(arrayData);
     });
     return () => unsub();
   }, []);
@@ -36,7 +35,7 @@ function TodoDisplay({ projectOn }) {
     }
   }, [projectOn])
 
-  const todos = projList.map((task) => {
+  const todos = todoList.map((task) => {
     return (
       <TodoCard
         key={task.id}

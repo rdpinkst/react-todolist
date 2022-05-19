@@ -34,6 +34,7 @@ function App() {
         style={styleOpacity}
         show={showInput}
         getNameProj={getNameProj}
+        setProjectOn = {setProjectOn}
         projectOn = {projectOn}
       />
       <FooterApp />

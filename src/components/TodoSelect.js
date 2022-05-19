@@ -5,7 +5,7 @@ import Icon from "@mdi/react";
 import { mdiHome, mdiCalendarToday, mdiFolder, mdiCloseThick } from "@mdi/js";
 import "../styles/todoSelect.css";
 
-function TodoSelect({ clickBtn, show, clickProj }) {
+function TodoSelect({ clickBtn, show, clickProj, setProjectOn, projectOn }) {
   const [proj, setProj] = useState([]);
   const [projId, setProjId] = useState("");
 
@@ -19,7 +19,7 @@ function TodoSelect({ clickBtn, show, clickProj }) {
   }
 
   useEffect(() => {
-    if (projId) {
+    if (projId){
       deleteProject(projId);
       setProjId("");
     }
