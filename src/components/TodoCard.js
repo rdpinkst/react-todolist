@@ -34,7 +34,7 @@ function TodoCard({ todo, date, urgency, id }) {
       </div>
       <p>{date}</p>
       <div className="edit">
-        <p className="edit-icon">
+        <p id={id} className="edit-icon">
           <Icon path={mdiPencil} size={1} />
         </p>
         <p id={id} className="edit-icon">

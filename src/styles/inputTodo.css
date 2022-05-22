@@ -6,6 +6,8 @@
     border: 0.5rem solid #ef9273;
     left: 40%;
     top: 15%;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
 .close{
     position: absolute;

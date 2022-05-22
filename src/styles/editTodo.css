@@ -1,0 +1,11 @@
+.edit-todo{
+    background-color: black;
+    position: absolute;
+    width: 25vw;
+    height: 60vh;
+    left: 40%;
+    top: 15%;
+    border: 0.5rem solid #ef9273;
+    background-color: #fef9f8;
+    overflow-y: scroll;
+}

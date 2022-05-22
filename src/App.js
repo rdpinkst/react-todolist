@@ -4,9 +4,11 @@ import Header from "./components/Header";
 import BodyApp from "./components/BodyApp";
 import FooterApp from "./components/FooterApp";
 import InputTodo from "./components/InputTodo";
+import EditTodo from "./components/EditTodo";
 
 function App() {
   const [showInput, setShowInput] = useState(false);
+  const [showEditInput, setShowEditInput] = useState(false);
   const [projectOn, setProjectOn] = useState("");
 
   function getNameProj(e) {
@@ -46,6 +48,7 @@ function App() {
           setProjectOn = {setProjectOn}
         />
       )}
+      {showEditInput && <EditTodo />}
     </div>
   );
 }

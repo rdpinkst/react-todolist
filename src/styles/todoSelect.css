@@ -3,6 +3,7 @@
     flex-direction: column;
     border-right: 0.5rem solid #ef9273;
     border-left: 0.5rem solid #ef9273;
+    overflow-y: scroll;
 }
 .selection, .name-proj{
     margin: 1rem 2rem 0 2rem;
