@@ -43,6 +43,7 @@ function App() {
           show={showInput}
           setShow={setShowInput}
           projectOn={projectOn}
+          setProjectOn = {setProjectOn}
         />
       )}
     </div>

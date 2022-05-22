@@ -29,7 +29,7 @@ function TodoCard({ todo, date, urgency, id }) {
   return (
     <div className="card">
       <p className="title">{todo}</p>
-      <div className="urgency">
+      <div className={`urgency-${urgency}`}>
         <p>{urgency}</p>
       </div>
       <p>{date}</p>

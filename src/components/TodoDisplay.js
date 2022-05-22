@@ -16,10 +16,15 @@ function TodoDisplay({ projectOn }) {
       querySnapshot.forEach((doc) => {
         arrayData.push(doc.data());
       });
-      setTodoList(arrayData);
+      // setTodoList(arrayData);
+      if(projectOn === ""){
+      setProjList(arrayData);
+      } else{
+        filterProj(arrayData);
+      }
     });
     return () => unsub();
-  }, []);
+  }, [projectOn]);
 
   function filterProj(arr){
     const result = arr.filter(data => data.project === projectOn)
@@ -27,15 +32,13 @@ function TodoDisplay({ projectOn }) {
     console.log(result)
   }
 
-  useEffect(() => {
-    if(projectOn === ""){
-      setProjList(todoList);
-    } else{
-      filterProj(todoList);
-    }
-  }, [projectOn])
+  // useEffect(() => {
+  //   if(projectOn !== ""){
+  //     filterProj(projList);
+  //   }
+  // }, [projectOn])
 
-  const todos = todoList.map((task) => {
+  const todos = projList.map((task) => {
     return (
       <TodoCard
         key={task.id}

@@ -16,7 +16,27 @@
 .card:nth-child(odd){
     background-color: #F8FDFE;
 }
-.urgency{
+.urgency-high{
     background-color: red;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5px;
+    width: 5rem;
+}
+.urgency-medium{
+    background-color: orange;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5px;
+    width: 5rem;
+}
+.urgency-low{
+    background-color: green;
+    color: black;
+    font-weight: 700;
+    text-align: center;
+    padding-top: 5px;
     width: 5rem;
 }

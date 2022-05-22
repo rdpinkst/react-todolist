@@ -3,7 +3,7 @@ import { doc, collection, addDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase";
 import "../styles/inputTodo.css";
 
-function InputTodo({ show, setShow, projectOn }) {
+function InputTodo({ show, setShow, projectOn, setProjectOn }) {
   const [todo, setTodo] = useState(true);
   const [project, setProject] = useState(false);
   const [todoName, setTodoName] = useState("");
@@ -70,6 +70,8 @@ function InputTodo({ show, setShow, projectOn }) {
     await updateDoc(updateId, {
       id: fileId,
     })
+    //add and then set projectON
+    setProjectOn(projName);
   }
   }
 
@@ -155,7 +157,7 @@ function InputTodo({ show, setShow, projectOn }) {
             >
               <option value="low">Low</option>
               <option value="medium">Medium</option>
-              <option value="High">High</option>
+              <option value="high">High</option>
             </select>
           </div>
           <div className="input">
