@@ -52,7 +52,7 @@ function App() {
         />
       )}
       {showEditInput && (
-        <EditTodo inputEdit={inputEdit} setInputEdit={setInputEdit} />
+        <EditTodo inputEdit={inputEdit} setInputEdit={setInputEdit} setShowEditInput={setShowEditInput} />
       )}
     </div>
   );

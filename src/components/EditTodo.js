@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import {doc, setDoc} from "firebase/firestore"
+import { db } from "../firebase";
 import "../styles/editTodo.css";
 
-function EditTodo({ inputEdit, setInputEdit }) {
+function EditTodo({ inputEdit, setInputEdit, setShowEditInput }) {
   const [submitEdit, setSubmitEdit] = useState(false);
 
   function editsSubmitted(e) {
@@ -9,8 +11,30 @@ function EditTodo({ inputEdit, setInputEdit }) {
     setSubmitEdit(prevState => !prevState);
   }
 
+  function clickClose(){
+    setShowEditInput(prevState => !prevState);
+  }
+
+  async function saveChanges(obj){
+    const refUpdate = doc(db, "tasks", obj.id)
+    await setDoc(refUpdate, {
+      ...obj,
+    })
+  }
+
+  useEffect(() => {
+    if(submitEdit){
+      setShowEditInput(prevState => !prevState);
+      setSubmitEdit(prevState => !prevState);
+      saveChanges(inputEdit)
+    }
+  }, [submitEdit])
+
   return (
     <form className="edit-todo" onSubmit={editsSubmitted}>
+      <p className="close" onClick={clickClose}>
+        x
+      </p>
       <div className="input">
         <label htmlFor="todo-name">Task to Complete:</label>
         <input
