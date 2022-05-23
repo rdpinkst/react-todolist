@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/editTodo.css";
 
-function EditTodo(){
+function EditTodo({inputEdit, setInputEdit}){
 
     return (
         <div className="edit-todo">
@@ -11,8 +11,8 @@ function EditTodo(){
               type="text"
               id="todo-name"
               name="todoTitle"
-            //   value={todoName}
-            //   onChange={(e) => setTodoName(e.target.value)}
+              value={inputEdit.todo}
+              onChange={(e) => setInputEdit(prevState => ({...prevState, todo: e.target.value}))}
             />
           </div>
           <div className="input">
@@ -21,8 +21,8 @@ function EditTodo(){
               type="text"
               id="todo-description"
               name="description"
-            //   value={description}
-            //   onChange={(e) => setDescription(e.target.value)}
+              value={inputEdit.description}
+              onChange={(e) => setInputEdit(prevState => ({...prevState, description: e.target.value}))}
             />
           </div>
           <div className="input">
@@ -31,8 +31,8 @@ function EditTodo(){
               type="text"
               id="project-input"
               name="project"
-            //   value={projName}
-            //   onChange={(e) => setProjName(e.target.value)}
+              value={inputEdit.project}
+              onChange={(e) => setInputEdit(prevState => ({...prevState, project: e.target.value}))}
             />
           </div>
           <div className="input">
@@ -41,16 +41,16 @@ function EditTodo(){
               type="date"
               id="todo-date"
               name="date"
-            //   value={date}
-            //   onChange={(e) => setDate(e.target.value)}
+              value={inputEdit.date}
+              onChange={(e) => setInputEdit(prevState => ({...prevState, date: e.target.value}))}
             />
           </div>
           <div className="input">
             <label htmlFor="todo-urgency">Urgency:</label>
             <select
               name="urgency"
-            //   value={urgency}
-            //   onChange={(e) => setUrgency(e.target.value)}
+              value={inputEdit.urgency}
+              onChange={(e) => setInputEdit(prevState => ({...prevState, urgency: e.target.value}))}
             >
               <option value="low">Low</option>
               <option value="medium">Medium</option>

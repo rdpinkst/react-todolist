@@ -4,7 +4,7 @@ import { db } from "../firebase";
 import TodoCard from "./TodoCard";
 import "../styles/todoDisplay.css";
 
-function TodoDisplay({ projectOn }) {
+function TodoDisplay({ projectOn, setEdit, setShowEditInput }) {
   const [projList, setProjList] = useState([]);
 
   useEffect(() => {
@@ -15,20 +15,20 @@ function TodoDisplay({ projectOn }) {
       querySnapshot.forEach((doc) => {
         arrayData.push(doc.data());
       });
-      
-      if(projectOn === ""){
-      setProjList(arrayData);
-      } else{
+
+      if (projectOn === "") {
+        setProjList(arrayData);
+      } else {
         filterProj(arrayData);
       }
     });
     return () => unsub();
   }, [projectOn]);
 
-  function filterProj(arr){
-    const result = arr.filter(data => data.project === projectOn)
+  function filterProj(arr) {
+    const result = arr.filter((data) => data.project === projectOn);
     setProjList(result);
-    console.log(result)
+    console.log(result);
   }
 
   const todos = projList.map((task) => {
@@ -39,6 +39,8 @@ function TodoDisplay({ projectOn }) {
         todo={task.todo}
         date={task.date}
         urgency={task.urgency}
+        setEdit={setEdit}
+        setShowEditInput={setShowEditInput}
       />
     );
   });

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import TodoSelect from "./TodoSelect";
 import TodoDisplay from "./TodoDisplay";
 import "../styles/bodyApp.css";
@@ -10,6 +10,8 @@ function BodyApp({
   getNameProj,
   projectOn,
   setProjectOn,
+  setEdit,
+  setShowEditInput,
 }) {
   return (
     <div className="app-body" style={style}>
@@ -18,9 +20,13 @@ function BodyApp({
         show={show}
         clickProj={getNameProj}
         setProjectOn={setProjectOn}
-        projectOn = {projectOn}
+        projectOn={projectOn}
       />
-      <TodoDisplay projectOn={projectOn} />
+      <TodoDisplay
+        projectOn={projectOn}
+        setEdit={setEdit}
+        setShowEditInput={setShowEditInput}
+      />
     </div>
   );
 }

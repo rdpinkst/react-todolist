@@ -9,6 +9,7 @@ import EditTodo from "./components/EditTodo";
 function App() {
   const [showInput, setShowInput] = useState(false);
   const [showEditInput, setShowEditInput] = useState(false);
+  const [inputEdit, setInputEdit] = useState({});
   const [projectOn, setProjectOn] = useState("");
 
   function getNameProj(e) {
@@ -36,8 +37,10 @@ function App() {
         style={styleOpacity}
         show={showInput}
         getNameProj={getNameProj}
-        setProjectOn = {setProjectOn}
-        projectOn = {projectOn}
+        setProjectOn={setProjectOn}
+        projectOn={projectOn}
+        setEdit={setInputEdit}
+        setShowEditInput={setShowEditInput}
       />
       <FooterApp />
       {showInput && (
@@ -45,10 +48,12 @@ function App() {
           show={showInput}
           setShow={setShowInput}
           projectOn={projectOn}
-          setProjectOn = {setProjectOn}
+          setProjectOn={setProjectOn}
         />
       )}
-      {showEditInput && <EditTodo />}
+      {showEditInput && (
+        <EditTodo inputEdit={inputEdit} setInputEdit={setInputEdit} />
+      )}
     </div>
   );
 }
